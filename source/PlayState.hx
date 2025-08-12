@@ -276,8 +276,8 @@ class PlayState extends MusicBeatState
 	var rainShaderStartIntensity:Float = 0;
 	var rainShaderEndIntensity:Float = 0;
 
-var santaDead:FlxAnimate;
-var parentsShoot:FlxAnimate;
+	var santaDead:FlxAnimate;
+	var parentsShoot:FlxAnimate;
 
 	function callLua(func_name : String, args : Array<Dynamic>, ?type : String) : Dynamic
 	{
