@@ -922,7 +922,14 @@ animation.addByIndices('laughCutscene', 'Laugh0', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
 		{
 			case 'gf':
 				if (animation.curAnim.name == 'hairFall' && animation.curAnim.finished)
-					dance();
+				{
+						danced = !danced;
+
+						if (danced)
+							playAnim('danceRight');
+						else
+							playAnim('danceLeft');
+				}
 		}
 
 		if (animation.curAnim.finished)
