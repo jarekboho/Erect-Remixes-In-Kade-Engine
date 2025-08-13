@@ -137,7 +137,6 @@ class LoadReplayState extends MusicBeatState
 			if (controls.DOWN_P)
 				changeSelection(1);
 		
-
 			if (controls.ACCEPT && grpControls.members[curSelected].text != "No Replays...")
 			{
                 trace('loading ' + actualNames[curSelected]);
