@@ -5023,7 +5023,7 @@ var value = SONG.events[i].v;
         if (targetChar.animOffsets.exists(anim))
         {
         targetChar.playAnim(anim, force);
-        targetChar.canPlayOtherAnims = force;
+        targetChar.canPlayOtherAnims = true;
         }
       }
     }
