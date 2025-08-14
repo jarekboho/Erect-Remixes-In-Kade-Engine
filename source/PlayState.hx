@@ -5022,6 +5022,7 @@ var value = SONG.events[i].v;
         var targetChar:Character = cast target;
         if (targetChar.animOffsets.exists(anim))
         {
+        targetChar.canPlayOtherAnims = true;
         targetChar.playAnim(anim, force);
         targetChar.canPlayOtherAnims = false;
         }
