@@ -1079,7 +1079,7 @@ animation.addByIndices('laughCutscene', 'Laugh0', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
 
 		if(normalChar != null){
 		normalChar.animation.play(AnimName, Force, Reversed, Frame);
-		normalChar.setPosition(this.x, this.y);
+		normalChar.setPosition(this.x + globalOffsets[0], this.y + globalOffsets[1]);
 		normalChar.offset.set(animOffsets2[0], animOffsets2[1]);
 		}
 
