@@ -94,6 +94,8 @@ class GameOverSubstate extends MusicBeatSubstate
 		deathSpriteNene.antialiasing = true;
 		deathSpriteNene.animation.play("throw");
 		}
+
+		FlxG.camera.follow(camFollow, LOCKON, 0.01);
 	}
 
 	function getMidPointOld(spr:FlxSprite, ?point:FlxPoint):FlxPoint
@@ -166,11 +168,6 @@ class GameOverSubstate extends MusicBeatSubstate
 
 			FlxG.switchState(new FreeplayState());
 			PlayState.loadRep = false;
-		}
-
-		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.curFrame == 12)
-		{
-			FlxG.camera.follow(camFollow, LOCKON, 0.01);
 		}
 
 		if(bf.curCharacter == 'pico-playable')
