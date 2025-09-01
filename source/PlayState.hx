@@ -3183,7 +3183,6 @@ var value = SONG.events[i].v;
 				});
 			}
 
-
 		if (!inCutscene)
 			keyShit();
 
