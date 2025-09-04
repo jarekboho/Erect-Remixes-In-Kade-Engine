@@ -1147,7 +1147,7 @@ class PlayState extends MusicBeatState
 
 					var orangeLight:FlxSprite = new FlxSprite(189, -500).loadGraphic(Paths.image("erect/orangeLight", 'week1'));
 					orangeLight.antialiasing = true;
-					orangeLight.scale.set(1, 1.2);
+					orangeLight.scale.set(1, 1700);
 					orangeLight.blend = BlendMode.ADD;
 					add(orangeLight);
 			}
@@ -3114,6 +3114,18 @@ var value = SONG.events[i].v;
 							case 0:
 								dad.playAnim('singLEFT' + altAnim, true);
 						}
+
+						if(daNote.noteType == "ugh" && dad.curCharacter == 'tankman')
+						{
+						dad.playAnim('ugh', true);
+						dad.canPlayOtherAnims = false;
+						}
+
+						if(daNote.noteType == "hey" && boyfriend.curCharacter == 'bf-christmas')
+						{
+						boyfriend.playAnim('hey', true);
+						boyfriend.canPlayOtherAnims = false;
+						}
 	
 						dad.holdTimer = 0;
 	
@@ -4753,8 +4765,6 @@ var value = SONG.events[i].v;
 			ZoomCameraSongEvent(songEvents[0]);
 			if(songEvents[0].eventKind == 'SetCameraBop')
 			SetCameraBopSongEvent(songEvents[0]);
-			if(songEvents[0].eventKind == 'PlayAnimation')
-			PlayAnimationSongEvent(songEvents[0]);
 			songEvents.shift();
 		}
 		}
@@ -4990,42 +5000,5 @@ var value = SONG.events[i].v;
 
     // Reset bop multiplier.
     cameraBopMultiplier = 1.0;
-  }
-
-  function PlayAnimationSongEvent(data:SongEventData)
-  {
-    var targetName = data.getString('target');
-    var anim = data.getString('anim');
-    var force = data.getBool('force');
-    if (force == null) force = false;
-
-    var target:FlxSprite = null;
-
-    switch (targetName)
-    {
-      case 'boyfriend' | 'bf' | 'player':
-        trace('Playing animation $anim on boyfriend.');
-        target = boyfriend;
-      case 'dad' | 'opponent':
-        trace('Playing animation $anim on dad.');
-        target = dad;
-      case 'girlfriend' | 'gf':
-        trace('Playing animation $anim on girlfriend.');
-        target = gf;
-    }
-
-    if (target != null)
-    {
-      if (Std.isOfType(target, Character))
-      {
-        var targetChar:Character = cast target;
-        if (targetChar.animOffsets.exists(anim))
-        {
-        targetChar.canPlayOtherAnims = true;
-        targetChar.playAnim(anim, force);
-        targetChar.canPlayOtherAnims = false;
-        }
-      }
-    }
   }
 }
