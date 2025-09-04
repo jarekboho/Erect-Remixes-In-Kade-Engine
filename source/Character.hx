@@ -220,8 +220,8 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'SingDOWN', 24, false);
 				animation.addByPrefix('singLEFT', 'SingLEFT', 24, false);
 				animation.addByPrefix('singRIGHT', 'SingRIGHT', 24, false);
-				animation.addByIndices('danceLeft', 'Idle', [0, 1, 2, 3, 4, 5, 6, 7], "", 24, false);
-				animation.addByIndices('danceRight', 'Idle', [8, 9, 10, 11, 12, 13, 14, 15], "", 24, false);
+				animation.addByIndices('danceLeft', 'Idle', [1, 2, 3, 4, 5, 6, 7, 8], "", 24, false);
+				animation.addByIndices('danceRight', 'Idle', [9, 10, 11, 12, 13, 14, 15, 16], "", 24, false);
 				animation.addByPrefix('cheer', 'Cheer', 24, false);
 
 				addOffset('danceLeft');
@@ -559,10 +559,10 @@ class Character extends FlxSprite
 			case 'senpai-angry':
 				frames = Paths.getSparrowAtlas('weeb/senpai', 'week6');
 				animation.addByPrefix('idle', 'Angry Senpai Idle', 24, false);
-				animation.addByPrefix('singUP', 'Angry Senpai UP NOTE', 24, false);
-				animation.addByPrefix('singLEFT', 'Angry Senpai LEFT NOTE', 24, false);
-				animation.addByPrefix('singRIGHT', 'Angry Senpai RIGHT NOTE', 24, false);
-				animation.addByPrefix('singDOWN', 'Angry Senpai DOWN NOTE', 24, false);
+				animation.addByPrefix('singUP', 'Angry Senpai UP NOTE instance 10', 24, false);
+				animation.addByPrefix('singLEFT', 'Angry Senpai LEFT NOTE instance 10', 24, false);
+				animation.addByPrefix('singRIGHT', 'Angry Senpai RIGHT NOTE instance 10', 24, false);
+				animation.addByPrefix('singDOWN', 'Angry Senpai DOWN NOTE instance 10', 24, false);
 
 				addOffset('idle', 0, 0);
 				addOffset("singUP", 0.83, 6.16);
@@ -1149,7 +1149,7 @@ animation.addByIndices('laughCutscene', 'Laugh0', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
 		if(val != 1)
 			normalChar.alpha = 1;
 		else
-			normalChar.alpha = 0.00000001;
+			normalChar.alpha = 0.0001;
 		}
 
 		return val;
