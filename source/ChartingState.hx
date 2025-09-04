@@ -44,7 +44,9 @@ class ChartingState extends MusicBeatState
 	[
 		'',
 		"mom",
-		"censor"
+		"censor",
+		"hey",
+		"ugh"
 	];
 	private var noteTypeIntMap:Map<Int, String> = new Map<Int, String>();
 	private var noteTypeMap:Map<String, Null<Int>> = new Map<String, Null<Int>>();
