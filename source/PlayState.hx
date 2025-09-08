@@ -1148,6 +1148,7 @@ class PlayState extends MusicBeatState
 					var orangeLight:FlxSprite = new FlxSprite(189, -500).loadGraphic(Paths.image("erect/orangeLight", 'week1'));
 					orangeLight.antialiasing = true;
 					orangeLight.scale.set(1, 1700);
+					orangeLight.updateHitbox();
 					orangeLight.blend = BlendMode.ADD;
 					add(orangeLight);
 			}
