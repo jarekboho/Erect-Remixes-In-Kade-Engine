@@ -685,7 +685,7 @@ class PlayState extends MusicBeatState
 					curStage = 'limo';
 					currentCameraZoom = 0.9;
 
-					var limoSunset:FlxSprite = new FlxSprite(-220, -80).loadGraphic(Paths.image('limo/erect/limoSunset', 'week4'));
+					var limoSunset:FlxSprite = new FlxSprite(-180, -80).loadGraphic(Paths.image('limo/erect/limoSunset', 'week4'));
 					limoSunset.scrollFactor.set(0.1, 0.1);
 					limoSunset.scale.set(0.9, 0.9);
 					limoSunset.updateHitbox();
@@ -1214,9 +1214,9 @@ class PlayState extends MusicBeatState
 				gf.y = 825 - gf.characterOrigin.y;
 			case 'spooky':
 				boyfriend.x = 1250 - boyfriend.characterOrigin.x;
-				boyfriend.y = 835 - boyfriend.characterOrigin.y;
+				boyfriend.y = 885 - boyfriend.characterOrigin.y;
 				dad.x = 382 - dad.characterOrigin.x;
-				dad.y = 831 - dad.characterOrigin.y;
+				dad.y = 865 - dad.characterOrigin.y;
 				gf.x = 821.5 - gf.characterOrigin.x;
 				gf.y = 800 - gf.characterOrigin.y;
 			case 'philly':
