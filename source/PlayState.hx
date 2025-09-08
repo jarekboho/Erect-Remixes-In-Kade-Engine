@@ -3120,12 +3120,6 @@ var value = SONG.events[i].v;
 						dad.playAnim('ugh', true);
 						dad.canPlayOtherAnims = false;
 						}
-
-						if(daNote.noteType == "hey" && boyfriend.curCharacter == 'bf-christmas')
-						{
-						boyfriend.playAnim('hey', true);
-						boyfriend.canPlayOtherAnims = false;
-						}
 	
 						dad.holdTimer = 0;
 	
@@ -4137,6 +4131,12 @@ var value = SONG.events[i].v;
 							boyfriend.playAnim('singDOWN' + altAnim, true);
 						case 0:
 							boyfriend.playAnim('singLEFT' + altAnim, true);
+					}
+
+					if(note.noteType == "hey" && boyfriend.curCharacter == 'bf-christmas')
+					{
+					boyfriend.playAnim('hey', true);
+					boyfriend.canPlayOtherAnims = false;
 					}
 		
 					if (!loadRep)
