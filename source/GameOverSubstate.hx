@@ -7,6 +7,7 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.FlxSprite;
+import flixel.system.FlxSound;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
@@ -21,6 +22,8 @@ class GameOverSubstate extends MusicBeatSubstate
 	var CAMERA_ZOOM_DURATION:Float = 0.5;
 
 	var targetCameraZoom:Float = 1.0;
+
+	var deathQuoteSound:Null<FlxSound> = null;
 
 	public function new(x:Float, y:Float)
 	{
@@ -198,10 +201,12 @@ class GameOverSubstate extends MusicBeatSubstate
 			if(playState.dad.curCharacter == 'tankman')
 			{
 			FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix), 0.2);
-			FlxG.sound.play(Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25), 'week7'), 1, false, null, true, function()
+			deathQuoteSound = new FlxSound().loadEmbedded(Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25), 'week7'), false, false, function()
 			{
 			FlxG.sound.music.fadeIn(4, 0.2, 1);
 			});
+			FlxG.sound.list.add(deathQuoteSound);
+			deathQuoteSound.play(true);
 			}
 			else
 			FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix));
@@ -228,6 +233,11 @@ class GameOverSubstate extends MusicBeatSubstate
 		if (!isEnding)
 		{
 			isEnding = true;
+			if (deathQuoteSound != null)
+			{
+			deathQuoteSound.stop();
+			deathQuoteSound = null;
+			}
 			if(deathSpriteRetry != null)
 			{
 			deathSpriteRetry.animation.play('confirm');
