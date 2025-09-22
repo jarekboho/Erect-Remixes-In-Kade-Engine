@@ -2705,8 +2705,24 @@ var value = SONG.events[i].v;
 
 	public static var songRate = 1.5;
 
+	var currentShader = null;
+
 	override public function update(elapsed:Float)
 	{
+		if(gf.curCharacter == 'nene')
+		{
+		if(abot != null && gf.shader != null && currentShader != gf.shader)
+		{
+		currentShader = gf.shader;
+		abot.speaker.shader = gf.shader;
+		abot.bg.shader = gf.shader;
+		abot.eyeBg.shader = gf.shader;
+		for (i in 0...abot.vizSprites.length)
+		{
+		abot.vizSprites[i].shader = gf.shader;
+		}
+		}
+		}
 		if(gf.curCharacter == 'nene')
 		{
 		transitionState();
