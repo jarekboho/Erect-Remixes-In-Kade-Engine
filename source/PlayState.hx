@@ -252,6 +252,8 @@ class PlayState extends MusicBeatState
 
 	var cameraZoomRate:Int = 4;
 
+	var cameraZoomRateOffset:Int = 0;
+
 	var sniper:FlxSprite;
 	var guy:FlxSprite;
 
@@ -4324,7 +4326,7 @@ var value = SONG.events[i].v;
 		}
 
 		// Only bop camera if zoom level is below 135%
-		if (FlxG.camera.zoom < (1.35 * FlxCamera.defaultZoom) && cameraZoomRate > 0 && curBeat % cameraZoomRate == 0)
+		if (FlxG.camera.zoom < (1.35 * FlxCamera.defaultZoom) && cameraZoomRate > 0 && (curBeat + cameraZoomRateOffset) % cameraZoomRate == 0)
 		{
 			// Set zoom multiplier for camera bop.
 			cameraBopMultiplier = cameraBopIntensity;
@@ -4976,12 +4978,15 @@ var value = SONG.events[i].v;
   {
     var rate:Null<Int> = data.getInt('rate');
     if (rate == null) rate = 4;
+    var offset:Null<Int> = data.getInt('offset');
+    if (rate == null) offset = 0;
     var intensity:Null<Float> = data.getFloat('intensity');
     if (intensity == null) intensity = 1.0;
 
     cameraBopIntensity = (1.015 - 1.0) * intensity + 1.0;
     hudCameraZoomIntensity = (1.015 - 1.0) * intensity * 2.0;
     cameraZoomRate = rate;
+    cameraZoomRateOffset = offset;
     trace('Set camera zoom rate to ${cameraZoomRate}');
   }
 
